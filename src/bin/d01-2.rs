@@ -1,7 +1,7 @@
 use aoc::*;
 
 fn main() {
-    let input = read("input/d01");
+    let input: Vec<i32> = read("input/d01");
     println!(
         "{:?}",
         input
