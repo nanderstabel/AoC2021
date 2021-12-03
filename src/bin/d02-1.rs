@@ -1,5 +1,4 @@
-use aoc::Direction::*;
-use aoc::*;
+use aoc::{Direction::*, *};
 
 fn main() {
     let input: Vec<Command> = read("input/d02");
