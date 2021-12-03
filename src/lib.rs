@@ -1,5 +1,5 @@
 use std::{
-    fmt::Debug,
+    fmt,
     fs::File,
     io::{prelude::*, BufReader},
     path::Path,
@@ -11,8 +11,8 @@ pub struct Tuple<T, U>(T, U);
 
 impl<U: FromStr, T: FromStr> FromStr for Tuple<T, U>
 where
-    T::Err: Debug,
-    U::Err: Debug,
+    T::Err: fmt::Debug,
+    U::Err: fmt::Debug,
 {
     type Err = ();
 
@@ -25,9 +25,17 @@ where
     }
 }
 
+pub type Command = Tuple<String, u8>;
+
+impl fmt::Display for Command {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "Command({}, {})", self.0, self.1)
+    }
+}
+
 pub fn read<T: FromStr>(filename: impl AsRef<Path>) -> Vec<T>
 where
-    <T as FromStr>::Err: Debug,
+    <T as FromStr>::Err: fmt::Debug,
 {
     let file = File::open(filename).expect("no such file");
     let buf = BufReader::new(file);
