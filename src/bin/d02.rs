@@ -14,8 +14,8 @@ pub enum Direction {
 impl FromStr for Direction {
 	type Err = ();
 
-	fn from_str(direction: &str) -> Result<Self, Self::Err> {
-		match direction {
+	fn from_str(s: &str) -> Result<Self, Self::Err> {
+		match s {
 			"down" => Ok(Direction::Down),
 			"up" => Ok(Direction::Up),
 			"forward" => Ok(Direction::Forward),
