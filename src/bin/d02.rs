@@ -24,17 +24,17 @@ impl FromStr for Direction {
 	}
 }
 
-impl Index<Direction> for [u32; 3] {
-	type Output = u32;
+impl<T> Index<Direction> for [T] {
+	type Output = T;
 
-	fn index(&self, direction: Direction) -> &u32 {
-		&self[direction as usize]
+	fn index(&self, direction: Direction) -> &T {
+		Index::index(self, direction as usize)
 	}
 }
 
-impl IndexMut<Direction> for [u32; 3] {
-	fn index_mut(&mut self, direction: Direction) -> &mut u32 {
-		&mut self[direction as usize]
+impl<T> IndexMut<Direction> for [T] {
+	fn index_mut(&mut self, direction: Direction) -> &mut T {
+		IndexMut::index_mut(self, direction as usize)
 	}
 }
 
