@@ -24,7 +24,7 @@ impl FromStr for Direction {
 	}
 }
 
-impl Index<Direction> for Array {
+impl Index<Direction> for [u32; 3] {
 	type Output = u32;
 
 	fn index(&self, direction: Direction) -> &u32 {
@@ -32,7 +32,7 @@ impl Index<Direction> for Array {
 	}
 }
 
-impl IndexMut<Direction> for Array {
+impl IndexMut<Direction> for [u32; 3] {
 	fn index_mut(&mut self, direction: Direction) -> &mut u32 {
 		&mut self[direction as usize]
 	}
