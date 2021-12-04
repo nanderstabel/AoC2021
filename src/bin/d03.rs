@@ -2,9 +2,7 @@ use aoc::*;
 use derive_more::{BitAnd, BitOrAssign, Display, Mul, Not, Shl};
 use std::str::FromStr;
 
-#[derive(
-	Debug, Display, Copy, Clone, BitAnd, Shl, BitOrAssign, PartialEq, PartialOrd, Not, Mul,
-)]
+#[derive(Display, Copy, Clone, BitAnd, Shl, BitOrAssign, PartialEq, PartialOrd, Not, Mul)]
 #[mul(forward)]
 pub struct Binary(u32);
 
