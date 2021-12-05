@@ -26,10 +26,8 @@ fn get_rating(metric: Metric, (one, zero): (Vec<&Binary>, Vec<&Binary>), sb: Bin
 		($criteria:tt) => {
 			get_rating(
 				metric,
-				(match one.len() $criteria zero.len() {
-					true => one,
-					false => zero,
-				}).into_iter().partition(|b| **b & sb != Binary(0)),
+				(if one.len() $criteria zero.len() {one} else {zero})
+					.into_iter().partition(|b| **b & sb != Binary(0)),
 				sb >> 1,
 			)
 		};

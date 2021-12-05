@@ -1,6 +1,6 @@
 use aoc::*;
 
 fn main() {
-	let input: Vec<Binary> = read("input/d04");
+	let input: Vec<String> = read("input/d04");
 
 }
