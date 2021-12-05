@@ -1,21 +1,8 @@
 use aoc::*;
-use derive_more::{BitAnd, BitOrAssign, BitXorAssign, Display, Mul, Not, Shl, Shr};
+use derive_more::{BitAnd, BitOrAssign, Display, Mul, Not, Shl, Shr};
 use std::str::FromStr;
 
-#[derive(
-	Display,
-	Copy,
-	Clone,
-	BitAnd,
-	Shl,
-	Shr,
-	BitOrAssign,
-	PartialEq,
-	PartialOrd,
-	Not,
-	Mul,
-	BitXorAssign,
-)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Display, BitAnd, BitOrAssign, Not, Mul, Shl, Shr)]
 #[mul(forward)]
 struct Binary(u32);
 
@@ -70,7 +57,7 @@ fn main() {
 		}
 	}
 	output!(
-		gamma * !gamma & Binary(0b1111_11111111u32),
+		gamma * (!gamma & Binary(0b1111_11111111u32)),
 		get_rating(
 			Metric::O2,
 			input.iter().map(|b| b).collect(),
