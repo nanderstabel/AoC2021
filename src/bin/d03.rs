@@ -23,10 +23,10 @@ enum Metric {
 
 fn get_rating(metric: Metric, (one, zero): (Vec<&Binary>, Vec<&Binary>), sb: Binary) -> Binary {
 	macro_rules! get_rating {
-		($criteria:tt) => {
+		($criterion:tt) => {
 			get_rating(
 				metric,
-				(if one.len() $criteria zero.len() {one} else {zero})
+				(if one.len() $criterion zero.len() {one} else {zero})
 					.into_iter().partition(|b| **b & sb != Binary(0)),
 				sb >> 1,
 			)
