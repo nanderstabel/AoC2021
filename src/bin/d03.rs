@@ -44,8 +44,7 @@ fn get_rating(metric: Metric, (one, zero): (Vec<&Binary>, Vec<&Binary>), sb: Bin
 
 fn main() {
 	let input: Vec<Binary> = read("input/d03");
-	let mut sb = Binary(1);
-	let mut gamma = Binary(0);
+	let (mut sb, mut gamma) = (Binary(1), Binary(0));
 
 	while sb < Binary(1 << 11) {
 		if input.iter().filter(|b| (**b & sb) != Binary(0)).count() > input.len() / 2 {
