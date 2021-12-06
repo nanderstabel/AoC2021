@@ -8,7 +8,7 @@ fn split_input(input: &Vec<String>) -> (Vec<u8>, Vec<Vec<i8>>) {
 			.collect(),
 		input[1..]
 			.iter()
-			.filter(|v| v.len() != 0)
+			.filter(|v| !v.is_empty())
 			.map(|s| {
 				s.split_whitespace()
 					.map(|s| s.parse::<i8>().unwrap())
@@ -23,7 +23,4 @@ fn main() {
 	let (draw, mut cards) = split_input(&input);
 	let mut cards: Vec<_> = cards.chunks_mut(5).collect();
 
-	cards[0][0][0] = -1;
-	println!("{:?}", draw);
-	println!("{:?}", cards);
 }
