@@ -12,3 +12,4 @@ name = "aoc"
 [dependencies]
 itertools = "0.10.1"
 derive_more = "0.99.17"
+array_tool = "1.0.3"
